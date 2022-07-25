@@ -2,6 +2,12 @@
 > 针对原版 README.md 中描述不清楚的部分进行了必要的修改
 > 
 > 原版里有一个非常重要的信息没有说明白，必须使用 Redis 数据库的支持。安装 Redis 或者使用 Redis 的 Docker 是前提
+> 
+> docker pull redis
+> 
+> docker run -d --name redis -p 6379:6379 redis --requirepass "password"
+
+![oqiDtA](https://upiclw.oss-cn-beijing.aliyuncs.com/uPic/oqiDtA.png)
 
 ### 1. ProxyPool 介绍
 
