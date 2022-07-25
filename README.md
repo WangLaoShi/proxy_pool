@@ -1,27 +1,13 @@
+# ProxyPool 爬虫代理 IP 池
+> 针对原版 README.md 中描述不清楚的部分进行了必要的修改
+> 
+> 原版里有一个非常重要的信息没有说明白，必须使用 Redis 数据库的支持。安装 Redis 或者使用 Redis 的 Docker 是前提
 
-ProxyPool 爬虫代理IP池
-=======
-[![Build Status](https://travis-ci.org/jhao104/proxy_pool.svg?branch=master)](https://travis-ci.org/jhao104/proxy_pool)
-[![](https://img.shields.io/badge/Powered%20by-@j_hao104-green.svg)](http://www.spiderpy.cn/blog/)
-[![Requirements Status](https://requires.io/github/jhao104/proxy_pool/requirements.svg?branch=master)](https://requires.io/github/jhao104/proxy_pool/requirements/?branch=master)
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/jhao104/proxy_pool/blob/master/LICENSE)
-[![GitHub contributors](https://img.shields.io/github/contributors/jhao104/proxy_pool.svg)](https://github.com/jhao104/proxy_pool/graphs/contributors)
-[![](https://img.shields.io/badge/language-Python-green.svg)](https://github.com/jhao104/proxy_pool)
-
-    ______                        ______             _
-    | ___ \_                      | ___ \           | |
-    | |_/ / \__ __   __  _ __   _ | |_/ /___   ___  | |
-    |  __/|  _// _ \ \ \/ /| | | ||  __// _ \ / _ \ | |
-    | |   | | | (_) | >  < \ |_| || |  | (_) | (_) || |___
-    \_|   |_|  \___/ /_/\_\ \__  |\_|   \___/ \___/ \_____\
-                           __ / /
-                          /___ /
-
-### ProxyPool
+### 1. ProxyPool 介绍
 
 爬虫代理IP池项目,主要功能为定时采集网上发布的免费代理验证入库，定时验证入库的代理保证代理的可用性，提供API和CLI两种使用方式。同时你也可以扩展代理源以增加代理池IP的质量和数量。
 
-* 文档: [document](https://proxy-pool.readthedocs.io/zh/latest/) [![Documentation Status](https://readthedocs.org/projects/proxy-pool/badge/?version=latest)](https://proxy-pool.readthedocs.io/zh/latest/?badge=latest)
+* 文档: [document](https://proxy-pool.readthedocs.io/zh/latest/)
 
 * 支持版本: ![](https://img.shields.io/badge/Python-2.x-green.svg) ![](https://img.shields.io/badge/Python-3.x-blue.svg)
 
@@ -30,9 +16,9 @@ ProxyPool 爬虫代理IP池
 * 付费代理推荐: [luminati-china](https://brightdata.grsm.io/proxyPool). 国外的亮数据BrightData（以前叫luminati）被认为是代理市场领导者，覆盖全球的7200万IP，大部分是真人住宅IP，成功率扛扛的。付费套餐多种，需要高质量代理IP的可以注册后联系中文客服，开通后有5美金赠送和教程指引(PS:用不明白的同学可以参考这个[使用教程](https://www.cnblogs.com/jhao/p/15611785.html))。
 
 
-### 运行项目
+### 2. 运行项目步骤
 
-##### 下载代码:
+#### 2.1 下载代码
 
 * git clone
 
@@ -46,31 +32,27 @@ git clone git@github.com:jhao104/proxy_pool.git
 https://github.com/jhao104/proxy_pool/releases 下载对应zip文件
 ```
 
-##### 安装依赖:
+#### 2.2 安装依赖
 
 ```bash
 pip install -r requirements.txt
 ```
 
-##### 更新配置:
+#### 2.3 更新配置
 
 
 ```python
 # setting.py 为项目配置文件
 
 # 配置API服务
-
 HOST = "0.0.0.0"               # IP
 PORT = 5000                    # 监听端口
 
-
 # 配置数据库
-
 DB_CONN = 'redis://:pwd@127.0.0.1:8888/0'
 
 
 # 配置 ProxyFetcher
-
 PROXY_FETCHER = [
     "freeProxy01",      # 这里是启用的代理抓取方法名，所有fetch方法位于fetcher/proxyFetcher.py
     "freeProxy02",
@@ -78,7 +60,7 @@ PROXY_FETCHER = [
 ]
 ```
 
-#### 启动项目:
+### 2.4 启动项目
 
 ```bash
 # 如果已经具备运行条件, 可用通过proxyPool.py启动。
@@ -92,14 +74,14 @@ python proxyPool.py server
 
 ```
 
-### Docker Image
+### 3. Docker Image
 
 ```bash
 docker pull jhao104/proxy_pool
 
 docker run --env DB_CONN=redis://:password@ip:port/0 -p 5010:5010 jhao104/proxy_pool:latest
 ```
-### docker-compose
+### 4. docker-compose
 
 项目目录下运行: 
 ``` bash
