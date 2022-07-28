@@ -22,9 +22,9 @@
 * 付费代理推荐: [luminati-china](https://brightdata.grsm.io/proxyPool). 国外的亮数据BrightData（以前叫luminati）被认为是代理市场领导者，覆盖全球的7200万IP，大部分是真人住宅IP，成功率扛扛的。付费套餐多种，需要高质量代理IP的可以注册后联系中文客服，开通后有5美金赠送和教程指引(PS:用不明白的同学可以参考这个[使用教程](https://www.cnblogs.com/jhao/p/15611785.html))。
 
 
-### 2. 运行项目步骤
+### 2. 使用源代码方式，运行项目
 
-#### 2.1 下载代码
+#### 2.1 启动 Redis Docker 后，下载代码
 
 * git clone
 
@@ -80,21 +80,21 @@ python proxyPool.py server
 
 ```
 
-### 3. Docker Image
+### 3. Docker Image 方式运行
 
 ```bash
 docker pull jhao104/proxy_pool
 
 docker run --env DB_CONN=redis://:password@ip:port/0 -p 5010:5010 jhao104/proxy_pool:latest
 ```
-### 4. docker-compose
+### 4. docker-compose 方式运行
 
 项目目录下运行: 
 ``` bash
 docker-compose up -d
 ```
 
-### 使用
+### 5. 启动后，项目使用方法
 
 * Api
 
@@ -141,7 +141,7 @@ def getHtml():
     return None
 ```
 
-### 扩展代理
+### 6. 扩展代理
 
 　　项目默认包含几个免费的代理获取源，但是免费的毕竟质量有限，所以如果直接运行可能拿到的代理质量不理想。所以，提供了代理获取的扩展方法。
 
@@ -183,7 +183,7 @@ PROXY_FETCHER = [
 
 　　`schedule` 进程会每隔一段时间抓取一次代理，下次抓取时会自动识别调用你定义的方法。
 
-### 免费代理源
+### 7. 免费代理源
 
    目前实现的采集免费代理网站有(排名不分先后, 下面仅是对其发布的免费代理情况, 付费代理测评可以参考[这里](https://zhuanlan.zhihu.com/p/33576641)): 
    
@@ -203,13 +203,13 @@ PROXY_FETCHER = [
   
   如果还有其他好的免费代理网站, 可以在提交在[issues](https://github.com/jhao104/proxy_pool/issues/71), 下次更新时会考虑在项目中支持。
 
-### 问题反馈
+### 8. 问题反馈
 
 　　任何问题欢迎在[Issues](https://github.com/jhao104/proxy_pool/issues) 中反馈，同时也可以到我的[博客](http://www.spiderpy.cn/blog/message)中留言。
 
 　　你的反馈会让此项目变得更加完美。
 
-### 贡献代码
+### 9. 贡献代码
 
 　　本项目仅作为基本的通用的代理池架构，不接收特有功能(当然,不限于特别好的idea)。
 
@@ -220,6 +220,6 @@ PROXY_FETCHER = [
 　　[@kangnwh](https://github.com/kangnwh) | [@bobobo80](https://github.com/bobobo80) | [@halleywj](https://github.com/halleywj) | [@newlyedward](https://github.com/newlyedward) | [@wang-ye](https://github.com/wang-ye) | [@gladmo](https://github.com/gladmo) | [@bernieyangmh](https://github.com/bernieyangmh) | [@PythonYXY](https://github.com/PythonYXY) | [@zuijiawoniu](https://github.com/zuijiawoniu) | [@netAir](https://github.com/netAir) | [@scil](https://github.com/scil) | [@tangrela](https://github.com/tangrela) | [@highroom](https://github.com/highroom) | [@luocaodan](https://github.com/luocaodan) | [@vc5](https://github.com/vc5) | [@1again](https://github.com/1again) | [@obaiyan](https://github.com/obaiyan) | [@zsbh](https://github.com/zsbh) | [@jiannanya](https://github.com/jiannanya)
 
 
-### Release Notes
+### 10. Release Notes
 
    [changelog](https://github.com/jhao104/proxy_pool/blob/master/docs/changelog.rst)
